@@ -35,10 +35,10 @@ def statement(invoice, plays):
         if play["type"] == "comedy":
             volume_credits += perf["audience"] // 5
         result += (
-            f"  {play['name']}: ${this_amount/100:.2f} ({perf['audience']} seats)\n"
+            f"  {play['name']}: ${this_amount/100:,.2f} ({perf['audience']} seats)\n"
         )
         total_amount += this_amount
-    result += f"Amount owed is ${total_amount/100:.2f}\n"
+    result += f"Amount owed is ${total_amount/100:,.2f}\n"
     result += f"You earned {volume_credits} credits\n"
     return result
 
