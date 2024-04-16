@@ -46,3 +46,18 @@ One use of temporary variables is to capture the value of some code in order to 
 - Ensure the extracted function is free of side effects. If not, use Separate Query from Modifier.
 - Test.
 - Use Inline Variable to remove the temp.
+
+## Split Phase
+
+Run into code that's dealing with two different things? 
+Look for a way to split it into separate modules. Divide the behavior into two sequential phases. A good example of this is when you have some processing whose inputs don't reflect the model you need to carry out the logic. 
+
+### Methodology
+
+- Extract the second phase code into its own function.
+- Test.
+- Introduce an intermediate data structure as an additional argument to the extracted function.
+- Test.
+- Examine each parameter of the extracted second phase. If it is used by first phase, move it to the intermediate data structure. Test after each move.
+    - Sometimes, a parameter should not be used by the second phase. In this case, extract the results of each usage of the parameter into a field of the intermediate data structure and use Move Statements to Callers on the line that populates it.
+- Apply Extract Function on the first-phase code, returning the intermediate data structure.
