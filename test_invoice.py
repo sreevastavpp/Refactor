@@ -31,15 +31,15 @@ def plays():
     return json.loads("""
     {
         "hamlet": {
-            "title": "Hamlet",
+            "name": "Hamlet",
             "type": "tragedy"
         },
         "as-like": {
-            "title": "As You Like It",
+            "name": "As You Like It",
             "type": "comedy"
         },
         "othello": {
-            "title": "Othello",
+            "name": "Othello",
             "type": "tragedy"
         }
     }""")
