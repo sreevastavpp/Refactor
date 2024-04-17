@@ -1,18 +1,8 @@
+import json
 from typing import Dict
 
-plays = {
-    "hamlet": {"name": "Hamlet", "type": "tragedy"},
-    "as-like": {"name": "As You Like It", "type": "comedy"},
-    "othello": {"name": "Othello", "type": "tragedy"},
-}
-invoices = {
-    "customer": "BigCo",
-    "performances": [
-        {"playID": "hamlet", "audience": 55},
-        {"playID": "as-like", "audience": 35},
-        {"playID": "othello", "audience": 40},
-    ],
-}
+
+plays = json.load(open("plays.json"))
 
 
 def _play_for(a_perfornance: Dict) -> Dict:
@@ -71,4 +61,6 @@ def statement(invoice, plays):
 
 
 if __name__ == "__main__":
-    print(statement(invoices, plays))
+    invoices = json.load(open("invoices.json"))
+    for invoice in invoices["customers"]:
+        print(statement(invoice, plays))
