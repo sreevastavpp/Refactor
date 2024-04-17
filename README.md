@@ -20,7 +20,7 @@ Some people are concerned about short functions because they worry about the per
 
 When you see fragments of code in a larger function that start with a comment to say what they do. The comment is often a good hint for the name of the function when you extract that fragment.
 
-### Mwthodology
+### Methodology
 
 - Create a new function, and name it after the intent of the function.
     - If the language supports nested functions, nest the extracted function inside the source function. That will reduce the amount of out-of-scope variables to deal with after the next couple of steps
@@ -46,6 +46,11 @@ One use of temporary variables is to capture the value of some code in order to 
 - Ensure the extracted function is free of side effects. If not, use Separate Query from Modifier.
 - Test.
 - Use Inline Variable to remove the temp.
+
+## Change Functin Declaration
+
+- aka:	Rename Function
+- aka:	Change Signature
 
 ## Split Phase
 
